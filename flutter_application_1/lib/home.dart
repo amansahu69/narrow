@@ -1,7 +1,7 @@
 
  import 'package:flutter/material.dart';
-import 'package:flutter_application_1/massage/massage.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_application_1/screen/mainhome.dart';
+import 'package:flutter_application_1/screen/profile.dart';
 // import 'package:flutter_application_1/screen/add.dart';
 // import 'package:flutter_application_1/screen/profile.dart';
 // import 'package:flutter_application_1/screen/search.dart';
@@ -13,7 +13,11 @@ class homepage extends StatefulWidget {
   @override
   State<homepage> createState() => homepageState();
 }
-       int currentindes= 0;
+       int currentindex= 0;
+       PageController pageController=PageController();
+       
+        
+        
 
     
 
@@ -30,19 +34,19 @@ class homepageState extends State<homepage> {
     return Scaffold(
 
 
-      appBar: AppBar(
-        centerTitle: true,
-        title: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 5),
-          child: Text("NARROw",style: TextStyle(fontFamily: "roboto",fontWeight: FontWeight.bold),),
-        ),
-        actions: [
-           IconButton(onPressed: (){
-             Navigator.push(context, MaterialPageRoute(builder: (context)=>Massage()));
-           }, icon: Icon(FontAwesomeIcons.facebookMessenger))
+      
+
+       body:   PageView(
+        controller: pageController,
+        children: [
+          mainhomepage(),
+          profile_main(),
+           
         ],
-    
-      ),
+
+       ),
+         
+       
       
     
       
@@ -51,25 +55,37 @@ class homepageState extends State<homepage> {
 
         bottomNavigationBar: BottomNavigationBar(
           elevation: 1,
-           currentIndex:currentindes ,
+           currentIndex:currentindex ,
+
        onTap: (value) {
-           currentindes=value;
+            currentindex= value;
+            setState(() {
+              currentindex=value;
+            });
+             pageController.jumpToPage(value);
        },
        
+       
+       
 
-             items: [
+             items:  [
 
                BottomNavigationBarItem( icon: Icon(Iconsax.home),label: "home"),
                BottomNavigationBarItem(icon: Icon(Iconsax.user),label: "profile"),
 
                  
              ],
+            
+             
 
             
-
-
+       
+    
             
         ),
+         
+         
+        
 
     );
   }
