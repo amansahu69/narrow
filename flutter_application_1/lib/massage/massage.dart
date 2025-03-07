@@ -14,11 +14,11 @@ class _MassageState extends State<Massage> {
 
          appBar: AppBar(
            
-             title: Text("MASSAge",style: TextStyle(fontFamily: "roboto",fontWeight: FontWeight.bold),),
+             title: const Text("MASSAge",style: TextStyle(fontFamily: "roboto",fontWeight: FontWeight.bold),),
              actions: [
                
                   PopupMenuButton(itemBuilder: (context)=>[
-             PopupMenuItem(child: Column(
+             const PopupMenuItem(child: Column(
               children: [
               //  Text("Massage",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,fontFamily:"ubuntu"))
               ],
@@ -39,7 +39,7 @@ class _MassageState extends State<Massage> {
                     
                    // focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                     border: OutlineInputBorder(borderRadius:BorderRadius.circular(60)),
-                    prefixIcon: Icon(Icons.search,color: Colors.black,),
+                    prefixIcon: const Icon(Icons.search,color: Colors.black,),
                              // suffixIcon: IconButton(icon: Icon(Icons.close,color: Colors.black), onPressed: (){}),
                        
                           ),
